@@ -27,8 +27,8 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
+        </dependency>
+ 
 		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -74,6 +74,42 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</build>
+    </build>
+
+    <profiles>
+    <profile>
+      <id>contrast-scan</id>
+      <activation>
+        <property>
+          <name>env.CI</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.contrastsecurity</groupId>
+            <artifactId>contrast-maven-plugin</artifactId>
+            <version>2.13.2-SNAPSHOT</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>scan</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <apiUrl>${CONTRAST__API__URL}</apiUrl>
+              <username>${CONTRAST__API__USER_NAME}</username>
+              <apiKey>${CONTRAST__API__API_KEY}</apiKey>
+              <serviceKey>${CONTRAST__API__SERVICE_KEY}</serviceKey>
+              <orgUuid>${CONTRAST__API__ORGANIZATION_ID}</orgUuid>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+  </profile>
+  </profiles>
+
 
 </project>
