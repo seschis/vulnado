@@ -34,6 +34,6 @@ jobs:
       - name: build
         run: mvn --batch-mode  verify -DskipTests=true
       - name: SAST
-        uses: Contrast-Security-OSS/contrastscan-actions@initial
+        uses: Contrast-Security-OSS/contrastscan-action@initial
         with:
           artifact: fake-artifact.jar
