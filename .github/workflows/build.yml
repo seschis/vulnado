@@ -32,5 +32,5 @@ jobs:
           # Java distribution. See the list of supported distributions in README file
           distribution: 'zulu' 
       - name: build
-        run: mvn verify -DskipTests=true
+        run: mvn --batch-mode  verify -DskipTests=true
 
