@@ -33,4 +33,7 @@ jobs:
           distribution: 'zulu' 
       - name: build
         run: mvn --batch-mode  verify -DskipTests=true
-
+      - name: SAST
+        uses: actions/contrastscan-actions@initial
+        with:
+          artifact: fake-artifact.jar
