@@ -42,5 +42,5 @@ jobs:
           CONTRAST__API__USER_NAME: ${{ secrets.CONTRAST_USERNAME }}
           CONTRAST__API__SERVICE_KEY: ${{ secrets.CONTRAST_SERVICE_KEY }}
           CONTRAST__API__API_KEY: ${{ secrets.CONTRAST_API_KEY }}
-          CONTRAST__API__ORGANIZATION: ${{ secrets.CONTRAST_ORG_ID }}
+          CONTRAST__API__ORGANIZATION_ID: ${{ secrets.CONTRAST_ORG_ID }}
 
